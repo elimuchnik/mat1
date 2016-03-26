@@ -41,9 +41,10 @@ public class Graph_algo {
 		}
 		return ver1;
 	}
-/*
- * 
- */
+	/*
+	 * DiJkstra algorithm(overloading)
+	 * like a first algorithm,but this one refers to "black list" of vertexes
+	 */
 	private Vertex[] DiJkstra(ArrayList<Vertex> ver, int num, int arr[]) {
 		Vertex ver1[] = new Vertex[ver.size()];
 		for (int i = 0; i < ver1.length; i++) {
@@ -74,13 +75,17 @@ public class Graph_algo {
 		}
 		return ver1;
 	}
-
+/*
+ * return distance between two vertexes
+ */
 	public double distanse(int a, int b) {
 
 		Vertex v[] = DiJkstra(g.graph, a);
 		return v[b].dist;
 	}
-
+/*
+ * return distance between two vertexes,refers to "black list" (arr)
+ */
 	public double distanse(int a, int b, int arr[]) {
 
 		Vertex v[] = DiJkstra(g.graph, a, arr);
@@ -88,7 +93,9 @@ public class Graph_algo {
 			return -1;
 		return v[b].dist;
 	}
-
+/*
+ * return the path between two vertexes
+ */
 	public String getTrack(int start, int end) {
 		Vertex v[] = DiJkstra(g.graph, start);
 		String ans = "";
@@ -102,7 +109,9 @@ public class Graph_algo {
 		return ans;
 
 	}
-
+	/*
+	 * return the path between two vertexes,refers to "black list" (arr)
+	 */
 	public String getTrack(int start, int end, int[] arr) {
 		Vertex v[] = DiJkstra(g.graph, start, arr);
 		String ans = "";
@@ -117,19 +126,6 @@ public class Graph_algo {
 
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Graph_algo a = new Graph_algo("tinyEWD.txt");
-		double t = a.distanse(7, 0);
-		System.out.println(t);
-		String ans = a.getTrack(7, 0);
-		System.out.println(ans);
-
-		/*
-		 * int []arr={67,45,76,153,37,115}; double n=a.distanse(3, 230,arr);
-		 * System.out.println(n); String an= a.getTrack(3, 230,arr);
-		 * System.out.println(an);
-		 */
-	}
+	
 
 }

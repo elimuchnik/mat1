@@ -12,7 +12,11 @@ import java.util.StringTokenizer;
 
 public class My_Test {
 	String[] arr;
-
+/*
+ * this function get path of the the graph file(text file with the data of the graph)
+ * and the path of the "black list" file(text file with the list of the "black" vertexes)
+ * then print the text file with the distances between the vertexes
+ */
 	public void paste_test(String data_path, String BL_path) {
 		try {
 			Graph_algo a = new Graph_algo(data_path);
@@ -25,7 +29,6 @@ public class My_Test {
 			int begin;
 			int end;
 			int num_black;
-			// int[]array;
 			for (int i = 1; i <= num; i++) {
 				String str = br.readLine();
 				StringTokenizer stk = new StringTokenizer(str);
@@ -52,15 +55,6 @@ public class My_Test {
 				}
 			}
 			br.close();
-			// FileWriter fw =new FileWriter("answer.txt");
-			// PrintWriter outs =new PrintWriter(fw);
-			// for (int i = 0; i < arr.length; i++) {
-			// outs.println(arr[i]);
-			// }
-			// outs.close();
-			for (int i = 0; i < arr.length; i++) {
-				System.out.println(arr[i]);
-			}
 		} catch (IOException ex) {
 			System.out.println("error\n" + ex);
 
